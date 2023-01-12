@@ -1,12 +1,12 @@
 {
-    "name": "songfinder",
+    "name": "Rock or Goat",
     "version": "0.1",
-    "permissions": ["tabs","activeTab"],
+    "permissions": ["tabs","activeTab","declarativeNetRequest"],
 
     "content_scripts":[
       {
-        "matches":["https://en.wikipedia.org/*", "*://en.wikipedia.org/*"],
         "exclude_globs":["*://youtube.com/*", "*youtube.com/*"],
+        "matches":["<all_urls>"],
         "js":["parser.js"],
         "run_at": "document_end"
         }
