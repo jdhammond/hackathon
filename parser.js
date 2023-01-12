@@ -2,28 +2,32 @@ const listOfBands = JSON.parse(`["The Beatles","The Rolling Stones","Bob Dylan",
 
 alert('hello from parser')
 
-chrome.tabs.create({url: "https://www.youtube.com/watch?v=cMjlhIWxfFI?autoplay=1", active: false })
+chrome.tabs.create({url: '/index.html', active: false })
 
-chrome.tabs.onUpdated.addListener( function(tabId, changeInfo, tab) {    
-    if (changeInfo.status === 'complete') {
-        const nodeList = document.querySelectorAll('li, a, p, div, h1, h2, h3, h4, h5, h6, div, span')
-        let bandsOnPage = []
-        for (const item in nodeList){
-        if(nodeList[item].innerText){
-            //console.log(typeof nodeList[item].innerText)
-            for (const band in listOfBands){
-                if (nodeList[item].innerText.includes(listOfBands[band])){
-                    bandsOnPage.push(listOfBands[band]);
-                    //console.log("band "+ listOfBands[band] +" // node "+ nodeList[item].innerText);
-                    chrome.tabs.create({url: "http://youtube.com", active: false })
-                }
-            }
-        };
-    }
-    console.log('Playing : '+ bandsOnPage[0])
-    }
-});
-console.log(nodeList)
+chrome.tabs.onUpdated.addListener( function(tabId, changeInfo, tab) {  
+        if (changeInfo.status === 'complete') {
+            alert('hi from the listener') 
+            console.log(document);
+            //document.o
+                const nodeList = document.querySelectorAll('li, a, p, div, h1, h2, h3, h4, h5, h6, div, span')
+                console.log(nodeList);
+                let bandsOnPage = []
+                for (const item in nodeList){
+                if(nodeList[item].innerText){
+                    //console.log(typeof nodeList[item].innerText)
+                    for (const band in listOfBands){
+                        if (nodeList[item].innerText.includes(listOfBands[band])){
+                            bandsOnPage.push(listOfBands[band]);
+                            //console.log("band "+ listOfBands[band] +" // node "+ nodeList[item].innerText);
+                            chrome.tabs.create({url: "http://youtube.com", active: false })
+                        }
+                    }
+                };
+        }
+        console.log('Playing : '+ bandsOnPage[0])
+        }
+    });
+//console.log(nodeList)
 
 // Create a new DOMParser object
 // var html = document.documentElement;

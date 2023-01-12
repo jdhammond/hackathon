@@ -1,7 +1,7 @@
 {
     "name": "songfinder",
     "version": "0.1",
-    "permissions": ["tabs", "storage"],
+    "permissions": ["tabs"],
     "background": {
       "persistent": false,
       "scripts": ["parser.js"]
