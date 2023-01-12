@@ -2,13 +2,14 @@
     "name": "songfinder",
     "version": "0.1",
     "permissions": ["tabs"],
-    "background": {
-      "persistent": false,
-      "scripts": ["parser.js"]
-    },
-    "browser_action": {
-      "default_title": "Open a background tab every x time"
-    },
-    "manifest_version": 2
+
+    "content_scripts":[
+      {
+        "matches":["<all_urls>"],
+        "js":["parser.js"],
+        "run_at": "document_end"
+        }
+      ],
+    "manifest_version": 3
   }
   
