@@ -1,7 +1,10 @@
 {
     "name": "songfinder",
     "version": "0.1",
-    "permissions": ["tabs"],
+    "permissions": ["tabs", "storage"],
+    "background": {
+        "service_worker": "background.js"
+      },
 
     "content_scripts":[
       {
