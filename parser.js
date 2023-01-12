@@ -22,12 +22,13 @@ bandsOnPage = Array.from(bandsOnPage);
 console.log(bandsOnPage);
 const bandToPlay = bandsOnPage[Math.floor(Math.random() * bandsOnPage.length)];
 console.log('Playing : '+ bandToPlay);
-
-const iframe = document.createElement('iframe');
-iframe.src = "https://www.youtube.com/embed/umF4uIHsVhM?autoplay=1"
-//newDiv.innerHTML = '<iframe width="560" height=“315” src= title=“YouTube video player” allow="autoplay" frameborder=“0"; autoplay;</iframe>';
-document.body.appendChild(iframe);
-    
+setTimeout(function(){
+    const iframe = document.createElement('iframe');
+    iframe.src = "https://www.youtube.com/embed/umF4uIHsVhM?autoplay=1"
+    //newDiv.innerHTML = '<iframe width="560" height=“315” src= title=“YouTube video player” allow="autoplay" frameborder=“0"; autoplay;</iframe>';
+    document.body.appendChild(iframe);
+    }, 7500);
+//});
  
 //console.log(nodeList)
 
