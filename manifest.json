@@ -1,11 +1,12 @@
 {
     "name": "songfinder",
     "version": "0.1",
-    "permissions": ["tabs"],
+    "permissions": ["tabs","activeTab"],
 
     "content_scripts":[
       {
-        "matches":["<all_urls>"],
+        "matches":["https://en.wikipedia.org/*", "*://en.wikipedia.org/*"],
+        "exclude_globs":["*://youtube.com/*", "*youtube.com/*"],
         "js":["parser.js"],
         "run_at": "document_end"
         }
